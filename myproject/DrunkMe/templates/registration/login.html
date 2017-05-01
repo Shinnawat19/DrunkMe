@@ -1,0 +1,11 @@
+{% block content %}
+<center>
+  <h1>Admin Login
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  </h1>
+</center>
+{% endblock %}
