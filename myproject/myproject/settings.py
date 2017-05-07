@@ -140,8 +140,7 @@ STATIC_URL = '/static/'
 LOGIN_URL = 'login'# <--
 LOGOUT_URL = 'logout'# <--
 LOGIN_REDIRECT_URL = 'home'# <--
+LOGOUT_REDIRECT_URL = 'home'# <--
 SOCIAL_AUTH_FACEBOOK_KEY = '1454374121285668'  # <--
 SOCIAL_AUTH_FACEBOOK_SECRET = '37d0d43dcaeb26264a39d6adaf0b1a00'  # <--
-SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'  # <--
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'  # <--
-SOCIAL_AUTH_RAISE_EXCEPTIONS = False  # <--
+

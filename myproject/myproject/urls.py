@@ -24,14 +24,17 @@ urlpatterns = [
     url(r'^event/(?P<num>[0-9]+)$', views.event , name='event'),
     url(r'^detail/(?P<num>[0-9]+)$', views.detail , name='detail'),
     url(r'^menu/(?P<num>[0-9]+)$', views.menu , name='menu'),
+    url(r'^search/', views.search , name='search'),
     url(r'^nearby/', views.nearby , name='nearby'),
 
     url(r'^login/$', auth_views.login, name='login'),# <--
     url(r'^logout/$', auth_views.logout, name='logout'),# <--
     url(r'^oauth/', include('social_django.urls', namespace='social')),  # <--
-    url(r'^settings/$', views.settings, name='settings'),# <--
-
+    
 ]
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
 
 from django.conf import settings
 from django.conf.urls.static import static
