@@ -7,17 +7,17 @@
 
 <center>
 <p><form method='GET' action='' style="display:inline">
-   <input type='text' name='type' placeholder='Type' value='{{request.GET.type}}'/>
-   <input type='text' name='area' placeholder='Area' value='{{request.GET.area}}'/>
+   <input type='text' name='q' placeholder='Type' value='{{request.GET.q}}'/>
    <input type='submit' value='Search'/>
 </form></p>
 	{% for i in menu %}
 	<h2>
-		<h2>{{i.bar}}</h2>
-		<h2 style="display:inline">{{i.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-		<h2 style="display:inline">{{i.price}}  บาท</h2>
-	</h2>
+		<h2 style="display:inline">{{i.bar}}</h2>
+		<h2 style="display:inline">{{i.name}}</h2>
+		<h2 style="display:inline">{{i.price}}</h2>
 		
+		
+	</h2>
 
 	{% endfor %}
 </center>

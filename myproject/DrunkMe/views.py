@@ -3,6 +3,7 @@ from DrunkMe.models import User, Bar , Menu , Review , Event
 from django.views.generic.edit import CreateView, UpdateView
 from django.views.generic.list import ListView
 from django.db.models import Q
+from itertools import chain
 from django.contrib.auth.decorators import login_required  # <--
 from django.contrib.auth.forms import AdminPasswordChangeForm, PasswordChangeForm  # <--
 from django.contrib.auth import update_session_auth_hash  # <--
@@ -34,12 +35,15 @@ def menu(request , num = '1'):
 	return render(request, 'menu.html' , {'menu' : menu , 'barname' : barname})
 
 def search(request):
-	menu_list = Menu.objects.all()
-	query = request.GET.get("type")
+	bar_list = Bar.objects.all()
+	menu_list = Menu.objects.all().order_by('bar' , 'price')
+	query = request.GET.get("q")
 	if query:
-		menu_list = menu_list.filter(Q(name__icontains=query))
-		
-	return render(request, 'search.html' , { 'menu' : menu_list})
+		menu_list = menu_list.filter(
+            Q(name__icontains=query))
+	
+
+	return render(request, 'search.html' , { 'menu' : menu_list , 'bar' : bar_list})
 
 def nearby(request):
 	return render(request, 'nearby.html')
